@@ -1,7 +1,8 @@
 # dvd2mkv
 archiving of dvds
 
-
+https://ottverse.com/analysis-of-svt-av1-presets-and-crf-values/#Test_Setup
+suggested parametesr crf 26 and preset 6-8 - doesnt hurt size much, but speed is much faster with 6-8
 
 
 1) MakeMKV move to mkv container (untouched)
@@ -16,7 +17,7 @@ ffmpeg -i F1_t00.mkv -i sub.srt -vf "yadif, crop=704:544:10:14" -c:v libsvtav1 -
 ffmpeg -i input.mkv -i subtitle1.srt -i subtitle2.srt \
   -map 0 -map 1 -map 2 \
   -vf "yadif, crop=704:544:10:14" \
-  -c:v libsvtav1 -crf 27 -preset 4 \
+  -c:v libsvtav1 -crf 26 -preset 8 \
   -c:a copy \
   -c:s mov_text \
   -metadata:s:s:0 language=eng \
